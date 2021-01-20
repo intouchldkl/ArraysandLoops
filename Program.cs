@@ -6,8 +6,11 @@ namespace ArraysandLoops
     {
         static void Main(string[] args)
         {
-            
-            question1()
+            string[] duplicates = Question8();
+            for(int i = 0;i < duplicates.Length;i++)
+            {
+                Console.WriteLine(duplicates[i]);
+            }
         }
         static void question1()
         {
@@ -81,5 +84,64 @@ namespace ArraysandLoops
             int highest = numbers[0];
             int lowest = numbers[0];
         }
+        static bool Question7(string SearchName)
+        {
+            string[] name = new string[] { "Intouch", "David", "Toy", "Prem" };
+
+
+            for (int i = 0; i < name.Length; i++)
+            {
+                if (name[i] == SearchName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        static string[] Question8()
+        {
+            int temp = 0;
+             int count = 0;
+            string[] places = new string[] { "Bangkok", "London", "Paris","London", "Berlin", "New York" ,"Bangkok"};
+
+            for (int i = 0; i < places.Length; i++)
+            {
+                string test = places[i];
+                
+                for (int z = i+1; z < places.Length; z++)
+                {
+                   
+                        if (test == places[z] )
+                        {
+
+                            count = count + 1;
+                        }
+                    
+
+                }
+            }
+            string[] duplicates = new string[count];
+            for (int i = 0; i < places.Length; i++)
+            {
+                string test1 = places[i];
+                
+                for (int z = i+1; z < places.Length; z++ )
+                {
+
+                   
+                        if (test1 == places[z] )
+                        {
+                            duplicates[i] = test1;
+                        }
+                    
+                    
+                }
+                
+            }
+            
+            return duplicates;
+        }
     }
+
 }
